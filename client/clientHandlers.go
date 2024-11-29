@@ -172,10 +172,10 @@ func (app *ClientAPP) StatusXDP() (string, error) {
 
 	//Print stats table
 	outMsg += "\nFiltered IP addresses' status:\n"
-	outMsg += fmt.Sprintf("%-4s %-24s %-35s %-35s\n", "No", "IP Address", centerText("Source filter", 35), centerText("Destination filter", 35))
+	outMsg += fmt.Sprintf("%-4s %-28s %-40s %-40s\n", "No", "IP Address", centerText("Source filter", 35), centerText("Destination filter", 35))
 	for index, value := range message.Status {
 		outMsg += fmt.Sprintf(
-			"%-4d %-20s %12d bytes (%-8d packets) %12d bytes (%-8d packets)\n",
+			"%-4d %-20s %24d bytes (%-8d packets) %24d bytes (%-8d packets)\n",
 			index+1,
 			value.Target,
 			value.Src_size_packets,
