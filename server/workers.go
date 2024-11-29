@@ -20,5 +20,4 @@ func (app *Application) timeoutWorker(interval int) {
 		}
 
 	}
-
 }

@@ -159,17 +159,30 @@ func (app *ClientAPP) StatusXDP() (string, error) {
 
 	//Print Timeout table
 	outMsg += "\nFiltered IP addresses' timeouts:\n"
-	outMsg += "\tIP Address\t\t\tTimeout\t\t\tRemaining Time\n"
-
+	outMsg += fmt.Sprintf("%-4s %-25s %-20s %-15s\n", "No", "IP Address", "Timeout", "Remaining Time")
 	for index, value := range message.Timeout {
-		outMsg += fmt.Sprintf("\t%d- %s\t\t\t%s\t%ds\n", index+1, value.Target, value.Timeout, value.Remaining)
+		outMsg += fmt.Sprintf(
+			"%-4d %-25s %-20s %-15ds\n",
+			index+1,
+			value.Target,
+			value.Timeout,
+			value.Remaining,
+		)
 	}
 
 	//Print stats table
 	outMsg += "\nFiltered IP addresses' status:\n"
-	outMsg += "\tIP Address\t\tSource filter\t\t\tDestination filter\n"
+	outMsg += fmt.Sprintf("%-4s %-20s %-35s %-35s\n", "No", "IP Address", "Source filter", "Destination filter")
 	for index, value := range message.Status {
-		outMsg += fmt.Sprintf("\t%d- %s\t\t%d bytes (%d packets)\t\t%d bytes (%d packets)\n", index+1, value.Target, value.Src_size_packets, value.Src_packets, value.Dst_size_packets, value.Dst_packets)
+		outMsg += fmt.Sprintf(
+			"%-4d %-20s %-24d bytes (%-8d packets) %-24d bytes (%-8d packets)\n",
+			index+1,
+			value.Target,
+			value.Src_size_packets,
+			value.Src_packets,
+			value.Dst_size_packets,
+			value.Dst_packets,
+		)
 	}
 	return outMsg, nil
 }

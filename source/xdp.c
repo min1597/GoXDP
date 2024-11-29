@@ -21,16 +21,16 @@ union key_4 {
 
 
 struct statusMapVal {
-    __u64 src_packets;
-    __u64 src_size_packets;
-    __u64 dst_packets;
-    __u64 dst_size_packets;
+  __u64 src_packets;
+  __u64 src_size_packets;
+  __u64 dst_packets;
+  __u64 dst_size_packets;
 };
 
 struct grehdr
 {
-    __be16 flags;
-    __be16 protocol;
+  __be16 flags;
+  __be16 protocol;
 };
 
 
